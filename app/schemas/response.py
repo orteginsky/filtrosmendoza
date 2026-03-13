@@ -45,10 +45,11 @@ class DiagnosticsInfo(BaseModel):
 
 class CallbackPayload(BaseModel):
     """Payload sent to Nexus Legal callback URL."""
-    
+
     task_id: str = Field(..., description="Original task ID")
     status: ProcessStatus = Field(..., description="Final processing status")
     outcome: Optional[str] = Field(None, description="Case outcome classification")
+    first_outcome: Optional[str] = Field(None, description="Case outcome for ClickUp 1st Outcome field")
     artifacts: Optional[ArtifactsInfo] = Field(None, description="Generated artifacts")
     diagnostics: Optional[DiagnosticsInfo] = Field(None, description="Processing diagnostics")
     error: Optional[str] = Field(None, description="Error message if status is error")

@@ -24,7 +24,7 @@ steps:
       - '--service-account'
       - 'ajustado-and-rag@woven-operative-419903.iam.gserviceaccount.com'
       - '--memory'
-      - '2Gi'
+      - '4Gi'
       - '--cpu'
       - '2'
       - '--timeout'

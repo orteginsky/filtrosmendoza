@@ -17,24 +17,47 @@ Cuando se te solicite generar tablas, utiliza el siguiente formato Markdown para
 - Para las tablas con un formato diferente, mantén el mismo principio de usar barras verticales '|' para separar las celdas y guiones '---' para separar el encabezado.
 """
 
+# Labels válidos para el campo first_outcome del callback a Nexus (case-sensitive)
+FIRST_OUTCOME_OPTIONS = {
+    "DENIED",
+    "N/Q - TS",
+    "NO INFO/SOLO QUEST",
+    "NON VAWA",
+    "NQ - FORCED LABOR",
+    "NQ - GMC",
+    "NQ - VAWA/VISA T",
+    "NQ - VISA U",
+    "NQ-NOT QAL RELATION",
+    "Pass",
+    "POSSIBLE NON VAWA",
+    "POTENTIAL VAWA",
+    "POTENTIAN VISA T",
+    "Reactivation",
+    "REESCREENING",
+    "VAWA - NEA",
+    "VAWA SPOUSE",
+    "VISA U",
+}
+
 NUEVOS_OUTCOMES_VALIDOS = [
     "Pass",
     "DENIED",
-    "NO INFO_SOLO QUEST",
+    "NO INFO/SOLO QUEST",
     "POTENTIAL VAWA",
     "NQ-NOT QAL RELATION",
-    "POTENTIAN VISA T", 
+    "POTENTIAN VISA T",
     "N/Q - TS",
-   "NON VAWA",
-   "NQ - GMC",
-   "NQ - VAWA_VISA T",
-   "NQ - VISA U",
-   "NQ - FORCED LABOR",
-   "POSSIBLE NON VAWA",
-   "Reactivation",
-   "VAWA - NEA",
-   "VISA U",
-   "VAWA SPOUSE"
+    "NON VAWA",
+    "NQ - GMC",
+    "NQ - VAWA/VISA T",
+    "NQ - VISA U",
+    "NQ - FORCED LABOR",
+    "POSSIBLE NON VAWA",
+    "Reactivation",
+    "REESCREENING",
+    "VAWA - NEA",
+    "VISA U",
+    "VAWA SPOUSE"
 ]
 
 

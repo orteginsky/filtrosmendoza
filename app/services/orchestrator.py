@@ -13,6 +13,7 @@ from app.services.ai_service import AIService
 from app.services.docs_service import DocsService
 from app.utils.fundamentals import load_fundamentals
 from app.schemas.response import CallbackPayload, ProcessStatus, ArtifactsInfo, DiagnosticsInfo
+from app.prompts import FIRST_OUTCOME_OPTIONS, NUEVOS_OUTCOMES_VALIDOS
 
 logger = get_logger(__name__)
 
@@ -59,10 +60,14 @@ class ProcessingOrchestrator:
 
             # --- PASO 5: CALLBACK ÉXITO ---
             processing_time_ms = int((time.time() - start_time) * 1000)
+            first_outcome = outcome if outcome in FIRST_OUTCOME_OPTIONS else None
+            if not first_outcome:
+                logger.warning(f"Outcome '{outcome}' not found in valid options, omitting first_outcome from callback")
             await self._send_callback(callback_url, CallbackPayload(
                 task_id=task_id,
                 status=ProcessStatus.SUCCESS,
                 outcome=outcome,
+                first_outcome=first_outcome,
                 artifacts=ArtifactsInfo(doc_id=doc_id, doc_url=doc_url),
                 diagnostics=DiagnosticsInfo(processing_time_ms=processing_time_ms, version="gemini-pro-tuned-v1")
             ))
